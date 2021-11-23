@@ -8,4 +8,4 @@ Memory matching card game. Features include: start game, try new pair, pick card
 * CSS
 * JS
 # Launch
-Go to http://tojo-matching-memory.surge.sh and try the game
+Go to https://tojo-matching-memory.surge.sh and try the game
