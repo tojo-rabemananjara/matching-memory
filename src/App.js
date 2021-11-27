@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Score } from './features/score/Score.js';
 import { Board } from './features/board/Board.js';
 // Add import statements below
@@ -20,18 +20,33 @@ const App = () => {
     dispatch(resetCards());
   };
 
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
   return (
     <div className="App">
-      <Score />
-      <Board />
-      <footer className="footer">
-        <button onClick={startGameHandler} className="start-button">
-          Start Game
-        </button>
-        <button onClick={tryAgainHandler} className="try-new-pair-button">
-          Try New Pair
-        </button>
-      </footer>
+      <div className="display-all">
+        <Score />
+        <Board />
+        <footer className="footer">
+          <button onClick={startGameHandler} className="start-button">
+            Start Game
+          </button>
+          <button onClick={tryAgainHandler} className="try-new-pair-button">
+            Try New Pair
+          </button>
+        </footer>
+      </div>
+      { size[0]<493 && <div className="rotate">
+                        <img src='/rotate-screen.png' alt='rotate'/>
+                       </div>}
     </div>
   );
 };

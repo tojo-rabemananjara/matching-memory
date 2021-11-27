@@ -88,3 +88,26 @@ body {
 .try-new-pair-button:focus {
   background-color: #7d1aff;
 }
+
+/* for all screens */
+.display-all {
+  display: none;
+}
+
+.rotate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* only when orientation is in landscape mode */
+@media all and (min-width: 493px) {
+    .display-all {
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
