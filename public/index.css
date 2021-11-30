@@ -51,6 +51,10 @@ body {
   color: #fd4d3f;
 }
 
+.card.all-matched {
+  color: gold;
+}
+
 .logo-placeholder {
   width: 120px;
 }

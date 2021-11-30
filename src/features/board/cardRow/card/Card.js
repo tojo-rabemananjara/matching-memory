@@ -50,6 +50,10 @@ const resetHandler = (id) => {
     click = () => resetHandler(id);
   }
 
+  if (matchedIDs.length === 12) {
+    cardStyle = 'all-matched';
+  }
+
   return (
     <button onClick={click} className={`card ${cardStyle}`}>
       {cardText}
